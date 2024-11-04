@@ -1,9 +1,7 @@
-import {Component, inject, Signal} from '@angular/core';
+import {Component} from '@angular/core';
 import {MovieItemComponent} from './movie-item/movie-item.component';
-import {Movie} from './model/movie.model';
-import {MoviesService} from './services/movies.service';
 import {HighlightDirective} from './highlight.directive';
-import {FavoritesService} from './services/favorites.service';
+import {RouterOutlet} from "@angular/router";
 
 
 @Component({
@@ -12,7 +10,7 @@ import {FavoritesService} from './services/favorites.service';
 
   templateUrl: 'app.component.html',
   imports: [
-    MovieItemComponent, HighlightDirective
+    MovieItemComponent, HighlightDirective, RouterOutlet
   ]
 })
 export class AppComponent {

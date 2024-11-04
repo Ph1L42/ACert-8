@@ -5,14 +5,16 @@ import {Movie} from '../model/movie.model';
 import {MoviesService} from '../services/movies.service';
 import {FavoritesService} from '../services/favorites.service';
 import {Observable} from 'rxjs';
+import {AsyncPipe} from "@angular/common";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-    imports: [
-        HighlightDirective,
-        MovieItemComponent
-    ],
+  imports: [
+    HighlightDirective,
+    MovieItemComponent,
+    AsyncPipe
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
