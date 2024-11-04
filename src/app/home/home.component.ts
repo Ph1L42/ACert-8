@@ -5,7 +5,7 @@ import {Movie} from '../model/movie.model';
 import {MoviesService} from '../services/movies.service';
 import {FavoritesService} from '../services/favorites.service';
 import {Observable} from 'rxjs';
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +19,11 @@ import {AsyncPipe} from "@angular/common";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  protected movies$: Observable<Movie[]> = inject(MoviesService).getMovies();
+  private moviesService = inject(MoviesService);
+  protected movies$: Observable<Movie[]> = this.moviesService.getMovies();
   protected favoritesService = inject(FavoritesService);
+
+  filter(title: string, year: string) {
+    this.movies$ = this.moviesService.filterMovieList(title, year);
+  }
 }
