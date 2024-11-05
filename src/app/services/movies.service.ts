@@ -20,8 +20,8 @@ export class MoviesService {
   filterMovieList(title = '', year = ''): Observable<Movie[]> {
     return this.getMovies().pipe(
       map(movies => movies.filter(movie =>
-          (year.length < 4 || year.length === 4 && movie.release_date.split('-')[0].includes(year))
-          && movie.title.toLowerCase().includes(title))
+          (year.length < 4 || year.length === 4 && movie.release_date.split('-')[0].includes(year.toLowerCase()))
+          && movie.title.toLowerCase().includes(title.toLowerCase()))
       )
     );
   }
